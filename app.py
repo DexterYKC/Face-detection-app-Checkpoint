@@ -1,7 +1,11 @@
-import cv2
 import numpy as np
 import streamlit as st
 from PIL import Image
+import cv2, os
+cascade_path = os.path.join(cv2.data.haarcascades, "haarcascade_frontalface_default.xml")
+face_cascade = cv2.CascadeClassifier(cascade_path)
+assert not face_cascade.empty(), "Haar cascade introuvable"
+
 
 st.title("Détection de visages")
 
